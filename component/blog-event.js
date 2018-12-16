@@ -1,4 +1,4 @@
-Vue.component('blog-post', {
+var blogPost = {
     props: ['post'],
     template: `
       <div class="blog-post">
@@ -9,9 +9,13 @@ Vue.component('blog-post', {
         <div v-html="post.content"></div>
       </div>
     `
-})
+}
+
 new Vue({
     el: '#blog-post-event-demo',
+    components: {
+        'blog-post': blogPost
+    },
     data: {
         posts: [
             { id: 1, title: 'My journey with Vue', content: 'content' },
