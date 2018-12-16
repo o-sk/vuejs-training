@@ -9,7 +9,7 @@
                     v-for="post in posts"
                     v-bind:key="post.id"
                     v-bind:post="post"
-                    v-on:enlarge-text="postFontSize += 0.1"
+                    v-on:enlarge-text="onEnlargeText"
                 ></blog-post>
             </div>
         </div>
