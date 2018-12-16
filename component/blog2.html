@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <div id="blog-post-demo">
+            <blog-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:title="post.title"
+            ></blog-post>
+        </div>
+        <script src="blog2.js"></script>
+    </body>
+</html>
