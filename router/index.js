@@ -25,7 +25,14 @@ var router = new VueRouter({
             component: {
                 template: '<div>ユーザーID: {{ $route.params.userId }}</div>'
             }
-        }
+        },
+        {
+            path: '/notfound',
+            component: {
+                template: '<div>page not found</div>'
+            }
+        },
+        { path: '*', redirect: '/notfound' }
     ]
 });
 
