@@ -8,6 +8,7 @@
             <router-link to="/top">top</router-link>
             <router-link to="/users">users</router-link>
             <router-link :to="{ name: 'user', params: { userId: 1 }}">user 123</router-link>
+            <router-link :to="{ name: 'user', params: { userId: 999 }}">user 999(redirect top)</router-link>
             <router-view></router-view>
         </div>
         <script src="index.js"></script>

@@ -15,6 +15,13 @@ var router = new VueRouter({
         {
             path: '/users/:userId',
             name: 'user',
+            beforeEnter: function (to, from, next) {
+                if (to.params.userId == 999) {
+                    next('/top');
+                } else {
+                    next();
+                }
+            },
             component: {
                 template: '<div>ユーザーID: {{ $route.params.userId }}</div>'
             }
