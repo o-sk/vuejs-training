@@ -9,12 +9,28 @@ const store = new Vuex.Store({
             {
                 id: 1,
                 name: 'Programming',
+                labelIds: [1, 2],
                 done: false
             },
             {
                 id: 2,
                 name: 'Code reading',
+                labelIds: [1, 3],
                 done: true
+            }
+        ],
+        labels: [
+            {
+                id: 1,
+                text: 'Vuejs',
+            },
+            {
+                id: 2,
+                text: 'Go',
+            },
+            {
+                id: 3,
+                text: 'Ruby',
             }
         ],
         nextTaskId: 3

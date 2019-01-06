@@ -5,6 +5,10 @@
             <li v-for="task in tasks" :key="task.id">
                 <input type="checkbox" :checked="task.done" @change="toggleTaskStatus(task)">
                 {{ task.name }}
+                -
+                <span v-for="id in task.labelIds" :key="id">
+                    {{ getLabelText(id) }}
+                </span>
             </li>
         </ul>
         <form @submit.prevent="addTask">
@@ -23,6 +27,9 @@ export default {
     computed: {
         tasks() {
             return this.$store.state.tasks
+        },
+        labels() {
+            return this.$store.state.labels
         }
     },
     methods: {
@@ -36,6 +43,10 @@ export default {
             this.$store.commit("toggleTaskStatus", {
                 id: task.id
             })
+        },
+        getLabelText(id) {
+            const label = this.labels.filter(label => label.id === id)[0]
+            return label ? label.text : ''
         }
     }
 
