@@ -16,7 +16,18 @@ const store = new Vuex.Store({
                 name: 'Code reading',
                 done: true
             }
-        ]
+        ],
+        nextTaskId: 3
+    },
+    mutations: {
+        addTask(state, { name }) {
+            state.tasks.push({
+                id: state.nextTaskId,
+                name,
+                done: false
+            })
+            state.nextTaskId++
+        }
     }
 })
 

@@ -7,14 +7,30 @@
                 {{ task.name }}
             </li>
         </ul>
+        <form @submit.prevent="addTask">
+            <input type="text" v-model="newTaskName" placeholder="new task">
+        </form>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            newTaskName: ''
+        }
+    },
     computed: {
         tasks() {
             return this.$store.state.tasks
+        }
+    },
+    methods: {
+        addTask() {
+            this.$store.commit("addTask", {
+                name: this.newTaskName
+            })
+            this.newTaskName = ''
         }
     }
 
