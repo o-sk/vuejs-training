@@ -17,7 +17,7 @@
         <h2>Labels</h2>
         <ul>
             <li v-for="label in labels" :key="label.id">
-                <input type="checkbox" :value="label.id">
+                <input type="checkbox" :value="label.id" v-model="newTaskLabelIds">
                 {{ label.text }}
             </li>
         </ul>
@@ -32,7 +32,8 @@ export default {
     data() {
         return {
             newTaskName: '',
-            newLabelText: ''
+            newLabelText: '',
+            newTaskLabelIds: []
         }
     },
     computed: {
@@ -46,9 +47,11 @@ export default {
     methods: {
         addTask() {
             this.$store.commit("addTask", {
-                name: this.newTaskName
+                name: this.newTaskName,
+                labelIds: this.newTaskLabelIds
             })
             this.newTaskName = ''
+            this.newTaskLabelIds = []
         },
         toggleTaskStatus(task) {
             this.$store.commit("toggleTaskStatus", {
