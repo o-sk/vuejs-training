@@ -35,6 +35,9 @@
                 no filter
             </li>
         </ul>
+        <h2>Save, Restore</h2>
+        <button type="button" @click="save">save</button>
+        <button type="button" @click="restore">restore</button>
     </div>
 </template>
 
@@ -86,6 +89,12 @@ export default {
             this.$store.commit("changeFilter", {
                 filter: labelId
             })
+        },
+        save() {
+            this.$store.dispatch('save')
+        },
+        restore() {
+            this.$store.dispatch('restore')
         }
     }
 
