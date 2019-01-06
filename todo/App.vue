@@ -14,6 +14,13 @@
         <form @submit.prevent="addTask">
             <input type="text" v-model="newTaskName" placeholder="new task">
         </form>
+        <h2>Labels</h2>
+        <ul>
+            <li v-for="label in labels" :key="label.id">
+                <input type="checkbox" :value="label.id">
+                {{ label.text }}
+            </li>
+        </ul>
     </div>
 </template>
 
