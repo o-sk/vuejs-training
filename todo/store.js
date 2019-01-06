@@ -33,7 +33,8 @@ const store = new Vuex.Store({
                 text: 'Ruby',
             }
         ],
-        nextTaskId: 3
+        nextTaskId: 3,
+        nextLabelId: 4
     },
     mutations: {
         addTask(state, { name }) {
@@ -51,7 +52,14 @@ const store = new Vuex.Store({
             filtered.forEach(task => {
                 task.done = !task.done
             })
-        }
+        },
+        addLabel(state, { text }) {
+            state.labels.push({
+                id: state.nextLabelId,
+                text
+            })
+            state.nextLabelId++
+        },
     }
 })
 

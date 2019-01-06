@@ -21,6 +21,9 @@
                 {{ label.text }}
             </li>
         </ul>
+        <form @submit.prevent="addLabel">
+            <input type="text" v-model="newLabelText" placeholder="new label">
+        </form>
     </div>
 </template>
 
@@ -28,7 +31,8 @@
 export default {
     data() {
         return {
-            newTaskName: ''
+            newTaskName: '',
+            newLabelText: ''
         }
     },
     computed: {
@@ -50,6 +54,12 @@ export default {
             this.$store.commit("toggleTaskStatus", {
                 id: task.id
             })
+        },
+        addLabel() {
+            this.$store.commit("addLabel", {
+                text: this.newLabelText
+            })
+            this.newLabelText = ''
         },
         getLabelText(id) {
             const label = this.labels.filter(label => label.id === id)[0]
