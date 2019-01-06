@@ -3,7 +3,7 @@
         <h2>Tasks</h2>
         <ul>
             <li v-for="task in tasks" :key="task.id">
-                <input type="checkbox" :checked="task.done">
+                <input type="checkbox" :checked="task.done" @change="toggleTaskStatus(task)">
                 {{ task.name }}
             </li>
         </ul>
@@ -31,6 +31,11 @@ export default {
                 name: this.newTaskName
             })
             this.newTaskName = ''
+        },
+        toggleTaskStatus(task) {
+            this.$store.commit("toggleTaskStatus", {
+                id: task.id
+            })
         }
     }
 
