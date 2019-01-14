@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 .login-view {
-  witdh: 320px;
+  width: 320px;
   margin: auto;
 }
 </style>
