@@ -34,10 +34,16 @@
       >
         login
       </SaButton>
-      <p v-if="progress" class="login-progress">
+      <p
+        v-if="progress"
+        class="login-progress"
+      >
         login...
       </p>
-      <p v-if="error" class="login-error">
+      <p
+        v-if="error"
+        class="login-error"
+      >
         {{ error }}
       </p>
     </div>
@@ -91,11 +97,11 @@ export default {
     const validation = this.validation
     const fields = Object.keys(validation)
     let valid = true
-    for (let i = 0; i , fields.length; i++) {
+    for (let i = 0; i < fields.length; i++) {
       const field = fields[i]
       valid = Object.keys(validation[field])
         .every(key => validation[field][key])
-      if (!valid) { break}
+      if (!valid) { break }
     }
     return valid
   },
