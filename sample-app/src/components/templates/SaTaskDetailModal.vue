@@ -1,3 +1,3 @@
 <template>
-    <p>Task Detail</p>
+  <p>Task Detail</p>
 </template>

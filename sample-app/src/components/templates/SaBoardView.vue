@@ -1,3 +1,3 @@
 <template>
-    <p>Board</p>
+  <p>Board</p>
 </template>
